@@ -14,7 +14,7 @@ const themes = {
     input: "#fbfff9",
     petalLight: "#ddeed8",
     petalDark: "#88be97",
-    message: "Your heart feels grounded."
+    message: "have a great day, queen!"
   },
 
   Happy: {
@@ -27,7 +27,7 @@ const themes = {
     input: "#fffdf2",
     petalLight: "#ffe59e",
     petalDark: "#ffc83d",
-    message: "Today feels full of light."
+    message: "omg you're so pretty!"
   },
 
   Inspired: {
@@ -40,7 +40,7 @@ const themes = {
     input: "#fffaff",
     petalLight: "#e6d7fa",
     petalDark: "#b994f3",
-    message: "Capture this spark before it disappears."
+    message: "it's in you, let it out!"
   },
 
   Tired: {
@@ -53,10 +53,10 @@ const themes = {
     input: "#fbfdff",
     petalLight: "#dde8f7",
     petalDark: "#8dafd6",
-    message: "Rest is productive too."
+    message: "girl, get some rest."
   },
 
-  Anxious: {
+  Thoughtful: {
     pageBg: "#f5f5f6",
     cardBg: "#fbfbfc",
     primary: "#59626b",
@@ -66,7 +66,7 @@ const themes = {
     input: "#ffffff",
     petalLight: "#ecedef",
     petalDark: "#b5bbc3",
-    message: "One breath at a time."
+    message: "it be like that, sometimes."
   },
 
   Sad: {
@@ -79,7 +79,7 @@ const themes = {
     input: "#fbfdff",
     petalLight: "#d9eaf8",
     petalDark: "#8fb6dc",
-    message: "Be gentle with yourself today."
+    message: "it's okay to not be okay <3"
   },
 
   Powerful: {
@@ -92,7 +92,7 @@ const themes = {
     input: "#fbfff9",
     petalLight: "#9ed8b1",
     petalDark: "#2f8f5b",
-    message: "You are capable of incredible things."
+    message: "i love the way you do everything."
   }
 };
 
