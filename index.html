@@ -199,6 +199,8 @@
   </div>
 
   <script>
+    const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/lqwsw3bcxijr2e68f5d5bj9ycyrnvd24";
+
     let selectedMood = "";
     let selectedCharacter = "";
 
@@ -231,7 +233,7 @@
         });
 
         document.getElementById("savedMessage").textContent =
-          `Saved: ${savedEntry.character} ${savedEntry.mood}`;
+          `Saved locally: ${savedEntry.character} ${savedEntry.mood}`;
       }
     }
 
@@ -244,7 +246,7 @@
       });
     });
 
-    function saveMood() {
+    async function saveMood() {
       const note = document.getElementById("note").value;
 
       if (!selectedMood) {
@@ -253,17 +255,34 @@
       }
 
       const entry = {
-        date: new Date().toLocaleString(),
-        slot: getTimeSlot(),
-        mood: selectedMood,
+        name: `${selectedCharacter} ${selectedMood} — ${getTimeSlot()} Check-In`,
         character: selectedCharacter,
-        note: note
+        mood: selectedMood,
+        note: note,
+        slot: getTimeSlot(),
+        date: new Date().toISOString()
       };
 
       localStorage.setItem(getTodayKey(), JSON.stringify(entry));
 
-      document.getElementById("savedMessage").textContent =
-        `Saved: ${entry.character} ${entry.mood}`;
+      document.getElementById("savedMessage").textContent = "Saving to Notion...";
+
+      try {
+        await fetch(MAKE_WEBHOOK_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(entry)
+        });
+
+        document.getElementById("savedMessage").textContent =
+          `Saved to Notion: ${entry.character} ${entry.mood}`;
+      } catch (error) {
+        document.getElementById("savedMessage").textContent =
+          "Saved on this device, but not sent to Notion.";
+        console.error("Webhook error:", error);
+      }
     }
 
     setupWidget();
